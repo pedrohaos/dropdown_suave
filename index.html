@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *,
+        *::after,
+        *::before{
+            margin: 0;
+            padding: 0;
+        }
+        .lista{
+            display: flex;
+            justify-content: space-between;
+            width: 1250px;
+            max-width: 100%;
+            margin-inline: auto;
+        }
+        .dropdown{
+            background-color: red;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-in-out;
+        }
+        .dropdown-show{
+            max-height: 200px; /* Ajuste conforme necessário */
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul class="lista">
+            <li id="item1"><a href="#">home</a></li>
+            <li id="item2"><a href="#">home</a></li>
+            <li id="item3"><a href="#">home</a></li>
+            <li id="item4"><a href="#">home</a></li>
+        </ul>
+    </nav>
+    <div class="dropdown">
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sit vero praesentium blanditiis fugiat accusantium error numquam, magni, cumque repellat, minus ipsam unde natus quaerat aspernatur assumenda mollitia voluptatibus dicta excepturi?</p>
+    </div>
+    <script>
+        const link = document.querySelector('#item1');
+        const dropdown = document.querySelector('.dropdown');
+
+        link.addEventListener('mouseenter', () => {
+            dropdown.classList.add('dropdown-show');
+        });
+
+        link.addEventListener('mouseleave', () => {
+            setTimeout(() => {
+                dropdown.classList.remove('dropdown-show');
+            }, 300); // Ajuste o tempo conforme necessário
+        });
+
+        dropdown.addEventListener('mouseenter', () => {
+            dropdown.classList.add('dropdown-show');
+        });
+
+        dropdown.addEventListener('mouseleave', () => {
+            dropdown.classList.remove('dropdown-show');
+        });
+    </script>
+</body>
+</html>
